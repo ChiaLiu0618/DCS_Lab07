@@ -55,27 +55,8 @@ This lab focuses on the implementation of a hardware stack using a Finite State 
 - **POP (`cmd=2'd3`)**: Outputs the last item. `empty` must be asserted when the stack has one element left and `cmd_ff = pop`. `data_out` is verified at the specified negedge.
 
 ## Simulation and Testing
-
-### Flow
-1. **RTL Simulation**:  
-   Run: `./01_run_vcs_rtl`
-
-2. **Synthesis (TSMC 40nm)**:  
-   Run: `./01_run_dc_shell`  
-   Ensure: Timing met (slack > 0), no latches, no errors in `syn.log`
-
-3. **Gate-Level Simulation**:  
-   Run: `./01_run_vcs_gate`  
-   Check: `./08_check` for no violations
-
-4. **Submission**:  
-   Run: `./00_tar` → creates `10.0.tar.gz`  
-   Submit via: `./01_submit`
-
-### Scoring
-- **Function Validity**: 100%
-- Pass required for:
-  - `01_RTL`
-  - `02_SYN`
-  - `03_GATE`
-- Clock period is fixed at **10 ns**. Do not modify.
+The project includes multiple verification steps:
+- **RTL Simulation**: The RTL simulation is performed using Synopsys VCS.
+- **Synthesis**: The design is synthesized using Synopsys Design Compiler with TSMC 40nm technology.
+- **Gate-Level Simulation**: The synthesized design is simulated using Synopsys VCS.
+- **Waveform Debugging**: Synopsys Verdi is used to inspect signals and debug the design.
